@@ -8,30 +8,32 @@ const Popular = () => {
 
   useEffect(() => {
     fetch(
-      `https://api.spoonacular.com/recipes/random?apiKey=${`5b11b96881eb47e69f959ba370ef2b90`}&number=9`
-    ).then((res) => res.json());
-    // .then((data) => setPopular(data.recipes));
+      `https://api.spoonacular.com/recipes/random?apiKey=${`5b11b96881eb47e69f959ba370ef2b90`}&number=12`
+    )
+      .then((res) => res.json())
+      .then((data) => setPopular(data.recipes));
   }, []);
   return (
-    <div>
+    <div className='my-4'>
       <div className='container '>
         <div className='wrapper'>
+          <h4>Popular Items</h4>
           <Splide
             options={{
               perPage: 4,
               arrows: false,
               pagination: false,
               drag: 'free',
-              gap: '4rem',
+              gap: '2rem',
             }}
           >
             {popular.map((recipe) => (
               <SplideSlide key={recipe.id}>
-                <div className='card-item'>
+                <div className='cardItem'>
                   <img
                     src={recipe.image}
                     alt={recipe.title}
-                    className='img-fluid img-thumbnail '
+                    className='img-fluid  '
                   />
                   <p className='cardTitle'>{recipe.title}</p>
                 </div>
@@ -40,7 +42,6 @@ const Popular = () => {
           </Splide>
         </div>
       </div>
-      <h1>This is popular component</h1>
     </div>
   );
 };

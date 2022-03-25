@@ -1,9 +1,8 @@
 .wrapper {
   margin: 2rem 0;
 }
-
 .cardItem {
-  min-height: 10rem;
+  min-height: 14rem;
   border-radius: 2rem;
   position: relative;
 }
